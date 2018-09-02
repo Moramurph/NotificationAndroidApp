@@ -1,6 +1,7 @@
 package cs420.cs.edu.wm.notificationandroidapp;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Intent;
@@ -22,24 +23,6 @@ public class AlarmService extends IntentService {
     @Override
     protected void onHandleIntent(Intent workIntent) {
         createNotification();
-    }
-
-    public void createNotificationView(View view) {
-        sID = "TESTING";
-        iID = 001;
-
-
-
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-
-        NotificationCompat.Builder mbuilder = new NotificationCompat.Builder(this, sID);
-        mbuilder.setSmallIcon(R.drawable.ic_launcher_background);
-        mbuilder.setContentTitle("Hello World");
-        mbuilder.setDefaults(NotificationCompat.DEFAULT_ALL);
-
-        createNotificationChannel();
-        notificationManager.notify(iID, mbuilder.build());
-
     }
 
     public void createNotification() {

@@ -62,9 +62,11 @@ public class MainActivity extends AppCompatActivity {
     private void createAlarm() {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent alarmIntent = new Intent(this, AlarmService.class);
-        PendingIntent alarmPending = PendingIntent.getService(this, 0, alarmIntent, 0);
-        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 1000, 10000, alarmPending);
+        Intent alarmIntent = new Intent(this, AlarmReciever.class);
+        PendingIntent alarmPending = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime(), 30000, alarmPending);
+
+
     }
 
 }
